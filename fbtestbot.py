@@ -4,6 +4,7 @@ import sys
 import os
 import json
 from Credentials import * 
+from utils import wit_response
 
 app = Flask(__name__)
 
@@ -26,7 +27,11 @@ def handle_messages():
                     recipient_id = messaging_event['recipient']['id']
                     message_text = messaging_event['message']['text']
 
-                    send_message(sender_id, message_text)
+                    entity, value = wit_response(message_text)
+                    if entity == None:
+                        send_message(sender_id, 'Il n\'a aucune entité créée.')
+                    else:
+                        send_message(sender_id, message_text)
 
                 if messaging_event.get('delivery'):
                     pass
