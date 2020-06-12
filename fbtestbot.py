@@ -28,8 +28,8 @@ def handle_messages():
                     message_text = messaging_event['message']['text']
 
                     entity, value = wit_response(message_text)
-                    if entity == None:
-                        response = 'Any intent has been created.'
+                    if entity == 'None':
+                        response = 'Any intent has been created for this sentence.'
                         log(entity)
                         send_message(sender_id, response)
                     else:
