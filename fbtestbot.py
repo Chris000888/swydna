@@ -23,7 +23,7 @@ def handle_messages():
             for messaging_event in entry['messaging']:
                 if messaging_event.get('message'):
                     sender_id = messaging_event['sender']['id']
-                    recipicient_id = messaging_event['recipicient']['id']
+                    recipient_id = messaging_event['recipient']['id']
                     message_text = messaging_event['message']['text']
                     send_message(sender_id, message_text)
 
@@ -38,8 +38,8 @@ def handle_messages():
 
     return 'ok', 200
 
-def send_message(recipicient_id, message_text):
-    log('Sending message to {recipicient}: {text}'.format(recipicient=recipicient_id, text=message_text))
+def send_message(recipient_id, message_text):
+    log('Sending message to {recipient}: {text}'.format(recipient=recipient_id, text=message_text))
     params = {
         'access_token': PAGE_ACCESS_TOKEN
     }
