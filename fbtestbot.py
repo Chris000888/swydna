@@ -29,7 +29,7 @@ def handle_messages():
 
                     entity, value = wit_response(message_text)
                     if entity == None:
-                        response = 'Il n\'a aucune entité créée.'
+                        response = 'Any intent has been created.'
                         log(entity)
                         send_message(sender_id, response)
                     else:
