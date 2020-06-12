@@ -1,0 +1,69 @@
+from flask import Flask, request
+import requests
+import sys
+import os
+import json
+from Credentials import * 
+
+app = Flask(__name__)
+
+@app.route('/', methods=['GET'])
+def handle_verification():
+    if request.args.get('hub.verify_token', '') == VERIFY_TOKEN:
+        return request.args.get('hub.challenge', 200)
+    else:
+        return 'Error, wrong validation token'
+
+@app.route('/', methods=['POST'])
+def handle_messages():
+    data = request.get_json()
+    log(data)
+    if data['object'] == 'page':
+        for entry in data['entry']:
+            for messaging_event in entry['messaging']:
+                if messaging_event.get['message']:
+                    sender_id = messaging_event['sender']['id']
+                    recipicient_id = messaging_event['recipicient']['id']
+                    message_text = messaging_event['message']['text']
+                    send_message(sender_id, message_text)
+
+                if messaging_event.get('delivery'):
+                    pass
+
+                if messaging_event.get('optin'):
+                    pass
+
+                if messaging_event.get('postback'):
+                    pass
+
+    return 'ok', 200
+
+def send_message(recipicient_id, message_text):
+    log('Sending message to {recipicient}: {text}'.format(recipicient=recipicient_id, text=message_text))
+    params = {
+        'access_token': PAGE_ACCESS_TOKEN
+    }
+    headers = {
+        'Content-type': 'application/json'
+    }
+    data = json.dumps({
+        'recipicient':{
+            'id': recipicient_id
+        },
+        'message':{
+            'text':message_text
+        }
+    })
+    r = requests.post('https://graph.facebook.com/v2.6/me/messages', params=params, headers=headers, data=data)
+    if r.status_code == 200:
+        log(r.status_code)
+    log(r.text)
+
+def log(message):
+    print(str(message))
+    sys.stdout.flush()
+
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
+                
