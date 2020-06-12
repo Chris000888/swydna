@@ -28,9 +28,9 @@ def handle_messages():
                     message_text = messaging_event['message']['text']
 
                     entity, value = wit_response(message_text)
-                    if entity == 'None':
+                    if entity == None:
                         response = 'Il n\'a aucune entité créée.'
-                        log(wit_response(message_text))
+                        log(entity)
                         send_message(sender_id, response)
                     else:
                         send_message(sender_id, 'Sorry but I didn\'t understand what you are telling to me...')
