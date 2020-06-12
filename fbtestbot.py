@@ -25,6 +25,7 @@ def handle_messages():
                     sender_id = messaging_event['sender']['id']
                     recipient_id = messaging_event['recipient']['id']
                     message_text = messaging_event['message']['text']
+
                     send_message(sender_id, message_text)
 
                 if messaging_event.get('delivery'):
@@ -47,7 +48,7 @@ def send_message(recipient_id, message_text):
         'Content-type': 'application/json'
     }
     data = json.dumps({
-        'recipicient':{
+        'recipient':{
             'id': recipient_id
         },
         'message':{
