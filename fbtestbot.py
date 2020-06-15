@@ -28,6 +28,8 @@ def handle_messages():
                     message_text = messaging_event['message']['text']
 
                     entity, value = wit_response(message_text)
+                    log('Entity equals to ' + str(entity))
+                    log('Value equals to ' + str(value))
                     if entity == 'None':
                         response = 'Any intent has been created for this sentence.'
                         log(entity)
