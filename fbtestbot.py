@@ -44,9 +44,9 @@ def handle_messages():
                         buttons = show_buttons()
                         log(buttons)
                         client.send_quick_replies(sender_id, "List", [
-                            QuickReply("Projects", entity),
-                            QuickReply("Blog", entity),
-                            QuickReply("Contact Me", entity)
+                            QuickReply("Projects", 'Welcome'),
+                            QuickReply("Blog", 'Welcome'),
+                            QuickReply("Contact Me", 'Welcome')
                             ]
                         )
                         #bot.send_button_message(sender_id, task, buttons['buttons'])
