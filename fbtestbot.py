@@ -43,14 +43,13 @@ def handle_messages():
                         #send_message(sender_id, task)
                         buttons = show_buttons()
                         log(buttons)
-                        
-                        client.send_quick_replies(sender_id, "List", [
+                        """ client.send_quick_replies(sender_id, "List", [
                             QuickReply("Projects", 'Welcome'),
                             QuickReply("Blog", 'Welcome'),
                             QuickReply("Contact Me", 'Welcome')
                             ]
-                        )
-                        #bot.send_button_message(sender_id, task, buttons['buttons'])
+                        ) """
+                        bot.send_button_message(sender_id, task, buttons['buttons'])
                         #bot.send_generic_message(sender_id, buttons['buttons'])
 
                         #bot.send_message(sender_id, buttons['buttons'])
