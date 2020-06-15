@@ -4,7 +4,7 @@ import sys
 import os
 import json
 from Credentials import * 
-from utils import wit_response
+from utils import wit_response, show_buttons
 
 app = Flask(__name__)
 
@@ -35,6 +35,7 @@ def handle_messages():
                         task = 'What do you want to do?'
                         send_message(sender_id, response)
                         send_message(sender_id, task)
+                        send_message(sender_id, show_buttons())
                     elif entity == 'asking':
                         task = 'What do you want?'
                         send_message(sender_id, task)
