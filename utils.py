@@ -19,23 +19,33 @@ def wit_response(message_text):
 def show_buttons():
 
     buttons = {
-        "buttons":[
-            {
-                "type":"web_url",
-                "url":"https://www.messenger.com",
-                "title":"Make a request"
-            },
-            {
-                "type":"web_url",
-                "url":"https://www.messenger.com",
-                "title":"Make a donation"
-            },
-            {
-                "type":"web_url",
-                "url":"https://www.messenger.com",
-                "title":"Get informed"
+
+        "message":{
+            "attachment":{
+            "type":"template",
+            "payload":{
+                "template_type":"button",
+                "text":"What do you want to do next?",
+                "buttons":[
+                    {
+                        "type":"web_url",
+                        "url":"",
+                        "title":"Make a request"
+                    },
+                    {
+                        "type":"web_url",
+                        "url":"",
+                        "title":"Make a donation"
+                    },
+                    {
+                        "type":"web_url",
+                        "url":"",
+                        "title":"Get informed"
+                    }
+                ]
             }
-        ]
+            }
+        }
     }
                 
      
