@@ -21,19 +21,16 @@ def show_buttons():
     buttons = {
         "buttons":[
             {
-                "type":"web_url",
-                "url":"https://www.messenger.com",
-                "title":"Make a request"
+                "text":"Make a request",
+                "value":"request"
             },
             {
-                "type":"web_url",
-                "url":"https://www.messenger.com",
-                "title":"Make a donation"
+                "text":"Make a donation",
+                "value":"donation"
             },
             {
-                "type":"web_url",
-                "url":"https://www.messenger.com",
-                "title":"Get informed"
+                "text":"Get informed",
+                "value":"info"
             }
         ]
     }
