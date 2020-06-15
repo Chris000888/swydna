@@ -31,7 +31,7 @@ def handle_messages():
                     log('Entity equals to ' + str(entity))
                     if entity == 'Welcome':
                         log(messaging_event['sender'])
-                        response = 'Welcome {}! I am SWYDNA: innocent:, your guide throughout this conversation.'.format(sender_id.name)
+                        response = 'Welcome {}! I am SWYDNA: innocent:, your guide throughout this conversation.'.format(sender_id.args)
                         task = 'What do you want to do?'
                         send_message(sender_id, response)
                         send_message(sender_id, task)
