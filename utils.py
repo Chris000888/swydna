@@ -24,11 +24,7 @@ def show_buttons():
                 "type":"web_url",
                 "url":"https://www.messenger.com",
                 "title":"Visit Messenger"
-            },
-            {
-                ...
-            },
-            {...}
+            }
         ]
     }
                 
