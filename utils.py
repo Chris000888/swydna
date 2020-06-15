@@ -23,17 +23,17 @@ def show_buttons():
             {
                 "type":"web_url",
                 "url":"https://www.messenger.com",
-                "value":"Make a request"
+                "title":"Make a request"
             },
             {
                 "type":"web_url",
                 "url":"https://www.messenger.com",
-                "value":"Make a donation"
+                "title":"Make a donation"
             },
             {
                 "type":"web_url",
                 "url":"https://www.messenger.com",
-                "value":"Get informed"
+                "title":"Get informed"
             }
         ]
     }
