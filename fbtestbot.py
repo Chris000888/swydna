@@ -40,7 +40,7 @@ def handle_messages():
                         #send_message(sender_id, task)
                         buttons = show_buttons()
                         log(buttons)
-                        bot.send_button_message(sender_id, task, buttons['buttons'])
+                        bot.send_button_message(sender_id, task, buttons)
                         #bot.send_message(sender_id, buttons['buttons'])
                     elif entity == 'asking':
                         task = 'What do you want?'
