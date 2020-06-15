@@ -6,9 +6,12 @@ import json
 from Credentials import * 
 from utils import wit_response, show_buttons
 from pymessenger import Bot
+from pymessager.message import *
 
 app = Flask(__name__)
 
+
+client = Messager(PAGE_ACCESS_TOKEN)
 bot = Bot(PAGE_ACCESS_TOKEN)
 
 @app.route('/', methods=['GET'])
@@ -40,8 +43,15 @@ def handle_messages():
                         #send_message(sender_id, task)
                         buttons = show_buttons()
                         log(buttons)
-                        bot.send_button_message(sender_id, task, buttons['buttons'])
-                        bot.send_generic_message(sender_id, buttons['buttons'])
+                        client.send_quick_replies(sender_id, "List", [
+                            QuickReply("Projects", entity),
+                            QuickReply("Blog", entity),
+                            QuickReply("Contact Me", entity)
+                            ]
+                        )
+                        #bot.send_button_message(sender_id, task, buttons['buttons'])
+                        #bot.send_generic_message(sender_id, buttons['buttons'])
+
                         #bot.send_message(sender_id, buttons['buttons'])
                     elif entity == 'asking':
                         task = 'What do you want?'
