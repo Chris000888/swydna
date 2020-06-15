@@ -4,3 +4,4 @@ requests==2.23.0
 responses==0.10.12
 wit==6.0.0
 gnewsclient
+pymessenger

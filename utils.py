@@ -17,18 +17,21 @@ def wit_response(message_text):
     return (entity)
 
 def show_buttons():
+
     buttons = {
         "buttons":[
-                {
-                    "type":"web_url",
-                    "url":"https://www.messenger.com",
-                    "title":"Visit Messenger"
-                },
-                {
-                    "type":"web_url",
-                    "url":"https://www.messenger.com",
-                    "title":"Visit Messenger"
-                }
-            ]
+          {
+            "type":"web_url",
+            "url":"https://www.messenger.com",
+            "title":"Visit Messenger1"
+          },
+          {
+            "type":"web_url",
+            "url":"https://www.messenger.com",
+            "title":"Visit Messenger2"
+          }
+        ]
     }
+                
+     
     return buttons

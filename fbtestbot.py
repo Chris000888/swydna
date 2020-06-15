@@ -5,8 +5,11 @@ import os
 import json
 from Credentials import * 
 from utils import wit_response, show_buttons
+from pymessenger import Bot
 
 app = Flask(__name__)
+
+bot = Bot(PAGE_ACCESS_TOKEN)
 
 @app.route('/', methods=['GET'])
 def handle_verification():
@@ -35,7 +38,7 @@ def handle_messages():
                         task = 'What do you want to do?'
                         send_message(sender_id, response)
                         send_message(sender_id, task)
-                        send_message(sender_id, show_buttons())
+                        bot.send_generic_message(sender_id, show_buttons())
                     elif entity == 'asking':
                         task = 'What do you want?'
                         send_message(sender_id, task)
