@@ -4,8 +4,8 @@ import sys
 import os
 import json
 from Credentials import * 
-from utils import wit_response, show_buttons
-from pymessenger import Bot
+from utils import *
+from pymessenger.bot import Bot
 from pymessager.message import *
 
 app = Flask(__name__)
@@ -50,7 +50,10 @@ def handle_messages():
                             ]
                         ) """
                         #bot.send_button_message(sender_id, task, buttons['quick_replies'])
-                        bot.send_generic_message(sender_id, buttons['quick_replies'])
+                        #bot.send_generic_message(sender_id, buttons['quick_replies'])
+                        quick_reply_message = "What's your favorite House in Game of Thrones?"
+                        quick_rep_option = (["Stark","stark_payload"],["Lannister","lan_payload"],["Targaryan","tar_payload"],["none","None"])
+                        send_quickreply(sender_id, quick_reply_message, quick_rep_option)
 
                         #bot.send_message(sender_id, buttons['buttons'])
                     elif entity == 'asking':
