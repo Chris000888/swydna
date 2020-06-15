@@ -27,11 +27,10 @@ def handle_messages():
                     recipient_id = messaging_event['recipient']['id']
                     message_text = messaging_event['message']['text']
 
-                    entity, value = wit_response(message_text)
+                    entity = wit_response(message_text)
                     log('Entity equals to ' + str(entity))
-                    log('Value equals to ' + str(value))
-                    if entity == 'None':
-                        response = 'Any intent has been created for this sentence.'
+                    if entity == 'Welcome':
+                        response = 'Welcome bro, can you introoduce yourself please?'
                         log(entity)
                         send_message(sender_id, response)
                     else:

@@ -10,8 +10,7 @@ def wit_response(message_text):
     value = None
 
     try:
-        entity = list(resp['entities'])[0]
-        value = resp['entities'][entity][0]['value']
+        entity = resp['intents'][0]['name']
     except:
-        pass
-    return (entity, value)
+        entity = None
+    return (entity)
