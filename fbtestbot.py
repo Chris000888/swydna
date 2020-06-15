@@ -30,9 +30,14 @@ def handle_messages():
                     entity = wit_response(message_text)
                     log('Entity equals to ' + str(entity))
                     if entity == 'Welcome':
-                        response = 'Welcome bro, can you introoduce yourself please?'
-                        log(entity)
+                        log(messaging_event['sender'])
+                        response = 'Welcome {}! I am SWYDNA: innocent:, your guide throughout this conversation.'.format(sender_id)
+                        task = 'What do you want to do?'
                         send_message(sender_id, response)
+                        send_message(sender_id, task)
+                    elif entity == 'asking':
+                        task = 'What do you want?'
+                        send_message(sender_id, task)
                     else:
                         send_message(sender_id, 'Sorry but I didn\'t understand what you are telling to me...')
 
