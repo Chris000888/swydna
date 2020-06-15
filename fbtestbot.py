@@ -49,8 +49,8 @@ def handle_messages():
                             QuickReply("Contact Me", 'Welcome')
                             ]
                         ) """
-                        bot.send_button_message(sender_id, task, buttons['quick_replies'])
-                        #bot.send_generic_message(sender_id, buttons['buttons'])
+                        #bot.send_button_message(sender_id, task, buttons['quick_replies'])
+                        bot.send_generic_message(sender_id, buttons['quick_replies'])
 
                         #bot.send_message(sender_id, buttons['buttons'])
                     elif entity == 'asking':
