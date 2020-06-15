@@ -43,6 +43,7 @@ def handle_messages():
                         #send_message(sender_id, task)
                         buttons = show_buttons()
                         log(buttons)
+                        
                         client.send_quick_replies(sender_id, "List", [
                             QuickReply("Projects", 'Welcome'),
                             QuickReply("Blog", 'Welcome'),

@@ -19,6 +19,23 @@ def wit_response(message_text):
 def show_buttons():
 
     buttons = {
+        "quick_replies":[
+            {
+                "content_type":"text",
+                "title":"Red",
+                "payload":"<POSTBACK_PAYLOAD>",
+                "image_url":"http://example.com/img/red.png"
+            },
+            {
+                "content_type":"text",
+                "title":"Green",
+                "payload":"<POSTBACK_PAYLOAD>",
+                "image_url":"http://example.com/img/green.png"
+            }
+        ]
+    }
+
+    """ buttons = {
         "buttons":[
             {
                 "text":"Make a request",
@@ -33,7 +50,7 @@ def show_buttons():
                 "value":"info"
             }
         ]
-    }
+    } """
                 
      
     return buttons
