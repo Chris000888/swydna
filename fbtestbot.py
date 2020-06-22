@@ -42,12 +42,14 @@ def handle_messages():
                         send_message(sender_id, response)
                         buttons = show_buttons()
                         log(buttons)
-                        bot.send_button_message(sender_id, task, buttons['buttons'])
+                        #bot.send_button_message(sender_id, task, buttons['buttons'])
+                        send_message(sender_id, buttons['quick_replies'])
+                        bot.send_button_message(sender_id, task, buttons['quick_replies'])
                     elif entity == 'asking':
                         task = 'What do you want?'
                         send_message(sender_id, task)
                     else:
-                        send_message(sender_id, 'Sorry but I didn\'t understand what you are telling to me...')
+                        send_message(sender_id, 'I\'m training myself to understand all you are saying to me.^^\' ')
 
                 if messaging_event.get('delivery'):
                     pass

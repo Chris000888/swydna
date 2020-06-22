@@ -1,5 +1,7 @@
 from wit import Wit
 from gnewsclient import gnewsclient
+import requests
+
 
 access_token = '3WERRC4MUKO4UK4JHNNJ33YX7KBDNDAN'
 
@@ -35,8 +37,21 @@ def show_buttons():
                 "url":"https://www.messenger.com",
                 "title":"Get informed"
             }
-        ]
+        ],
+        "quick_replies":[ 
+            { 
+                "content_type":"text", 
+                "title":"Yes", 
+                "payload":"YES" 
+            }, 
+            { 
+                "content_type":"text", 
+                "title":"No", 
+                "payload":"NO",
+            } 
+        ] 
     }
                 
      
     return buttons
+
